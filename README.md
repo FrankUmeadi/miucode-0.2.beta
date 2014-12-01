@@ -2,7 +2,7 @@ miucode-0.2.beta
 ================
 
 It is old, deprecated version. It is here only for archive purpose. Current development version is here:  
-[](https://github.com/sookoll/miucode)
+[https://github.com/sookoll/miucode](https://github.com/sookoll/miucode)
 
 * Miucode - Simple text editor in your browser
 * Current version: 0.2 Beta
