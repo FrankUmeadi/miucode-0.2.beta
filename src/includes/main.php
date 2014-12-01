@@ -1,13 +1,4 @@
 <?php
-/*
-*	Miucode text editor version 1.0 Beta
-*	Author: Mihkel Oviir
-*	Project info: http://sookoll.pri.ee/friik/miucode
-*
-*	This work is licensed under MIT License, see http://www.opensource.org/licenses/mit-license.php
-*
-*/
-## ajax serverside response script
 
 $data='';
 

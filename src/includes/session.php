@@ -1,11 +1,4 @@
 <?php
-/*
- * session handler class
- * 
- * Creator: Mihkel Oviir
- * 03.2011
- * 
- */
 
 class Session {
 

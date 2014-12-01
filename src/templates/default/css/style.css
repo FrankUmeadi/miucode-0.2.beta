@@ -1,11 +1,3 @@
-/*
-*	Miucode text editor version 1.0 Beta
-*	Author: Mihkel Oviir
-*	Project info: http://sookoll.pri.ee/friik/miucode
-*
-*	This work is licensed under MIT License, see http://www.opensource.org/licenses/mit-license.php
-*
-*/
 /* CSS Stylesheet */
 body, html {margin:0;padding:0;height:97%;}
 body {font-family:Georgia;font-size: 13px;background:#EEE;padding: 15px;}
