@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Miucode</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="{_def-libs_}/CodeMirror-2.16/lib/codemirror.css">
+		<link rel="stylesheet" href="{_def-libs_}/CodeMirror-2.16/theme/default.css">
+		<link rel="stylesheet" type="text/css" href="{_def-tmpl_}/css/style.css" media="screen" />
+		<script type="text/javascript" src="{_def-libs_}/jquery/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript" src="{_def-libs_}/CodeMirror-2.16/lib/codemirror.js"></script>
+		<script src="{_def-libs_}/CodeMirror-2.16/mode/clike/clike.js" type="text/javascript"></script>
+		<script src="{_def-libs_}/CodeMirror-2.16/mode/php/php.js" type="text/javascript"></script>
+		<script src="{_def-libs_}/CodeMirror-2.16/mode/xml/xml.js" type="text/javascript"></script>
+		<script src="{_def-libs_}/CodeMirror-2.16/mode/javascript/javascript.js" type="text/javascript"></script>
+		<script src="{_def-libs_}/CodeMirror-2.16/mode/css/css.js" type="text/javascript"></script>
+		<script src="{_def-libs_}/CodeMirror-2.16/mode/htmlmixed/htmlmixed.js" type="text/javascript"></script>
+		<script type="text/javascript" src="{_def-libs_}/jquery/jquery.labelover.js"></script>
+		<script type="text/javascript">
+			var path = '{_def-path_}';
+		</script>
+		<script type="text/javascript" src="jscript/main.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<span id="title">Miucode</span>
+			<a href="?logout" id="exit" title="Exit!"><div id="bexit"></div></a>
+			<a href="help" id="help" class="button" title="Help!"><div id="bhelp"></div></a>
+			<p>Simple text editor in your browser</p>
+			<div class="left" id="leftcolumn">
+				<span class="b">
+					<a href="newdir" class="button" title="New Folder"><div id="bnewdir"></div></a>
+					<a href="deldir" title="Delete Folder" class="disabled"><div id="bdirdel"></div></a>
+				</span>
+				<h2>File explorer</h2>
+				<div id="filetree" class="filelist"></div>
+			</div>
+			<div class="left" id="rightcolumn">
+
+				<h2>New File</h2>
+				<div id="editform" style="position:relative;">
+					<span class="b">
+						<a href="save" title="Save!" class="disabled"><div id="bsave"></div></a>
+						<a href="delete" title="Delete file" class="disabled"><div id="bdelete"></div></a>
+						<a href="close" title="Close file" class="disabled"><div id="bclose"></div></a>
+					</span>
+					<div>
+						<input type="hidden" name="file" value="">
+						<input type="hidden" name="folder" value="">
+						<textarea name="editor" id="editor"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="newform" class="window">
+			<h3>Insert new file name</h3>
+			<div class="input">
+				<label for="new">File name</label>
+				<input type=text name="new" id="new" value="">
+			</div>
+			<div id="path"></div>
+			<a href="new" class="button" id="addnew" title="Save!"><img src="{_def-tmpl_}/images/save.png"></a>
+			<a href="cancel" class="close" title="Cancel"><img src="{_def-tmpl_}/images/cancel.png"></a>
+		</div>
+		<div id="delconfirm" class="window">
+			<h3>Delete active file?</h3>
+			<a href="delyes" class="button" id="delyes" title="Delete!"><img src="{_def-tmpl_}/images/accept.png"></a>
+			<a href="cancel" class="close" title="Cancel"><img src="{_def-tmpl_}/images/cancel.png"></a>
+		</div>
+		<div id="newfolder" class="window">
+			<h3>Insert new folder name</h3>
+			<div class="input">
+				<label for="newdir">Folder name</label>
+				<input type=text name="newdir" id="newdir" value="">
+			</div>
+			<div id="path"></div>
+			<a href="newdiryes" class="button" id="addnewdir" title="Save!"><img src="{_def-tmpl_}/images/save.png"></a>
+			<a href="cancel" class="close" title="Cancel"><img src="{_def-tmpl_}/images/cancel.png"></a>
+		</div>
+		<div id="delfolder" class="window">
+			<h3>Delete active folder?</h3>
+			<div id="page">Deleting folder also removes all its content!</div>
+			<a href="deldiryes" class="button" id="deldiryes" title="Delete!"><img src="{_def-tmpl_}/images/accept.png"></a>
+			<a href="cancel" class="close" title="Cancel"><img src="{_def-tmpl_}/images/cancel.png"></a>
+		</div>
+		<div id="helppage" class="window">
+			<h1>Miucode tips</h1>
+			<div id="page">
+				<b>Miucode</b> is free and open source lightweight web application for editing any kind of textfiles directly in server.<br>
+				<b>Miucode</b> is published under MIT License (look license.txt file in program folder).<br>
+				<b>Miucode</b> current release is 2.0 Beta (untested).<br>
+				<h4>Known bugs and notes</h4>
+				No control for situation when file has previously opened from deleted directory.<br>
+				Right now file explorer and file editor work asynchronously.<br>
+				If open new file, old file close without warning. Same when close unsaved file.<br>
+				Only one folder at time can be opened from same folderlevel.<br> 
+				<b>Miucode</b> works quite well in Firefox, Chrome and Safari.<br>
+				Friendly advise: Do not try to edit <b>Miucode</b> itself with <b>Miucode</b> :) <br>
+				<h4>Opening files and folders</h4>
+				Double click in file explorer list open/close folders there and open files into file editor.
+				<h4>Adding new folder</h4>
+				Click add new folder button and insert folder name. New folder will be saved into currently active folder in explorer. If no folder were opened, then it will be saved into root folder.
+				<h4>Delete folder</h4>
+				Open folder in explorer and click delete button to remove active folder and all its content.
+				<h4>Edit file</h4>
+				You can indent text by one row and multiple selected rows with Tab-key and Shift+Tab-key.
+				<h4>Add new file</h4>
+				To add new file, just start coding. Save button call window, where you can insert new file name. File will be inserted into currently active folder in explorer. If no folder were opened, then it will be saved into root folder.
+				<h4>Save file</h4>
+				When some file is opened in file editor, then save file button acts like normal save button. <b>Miucode</b> always rewrite opened file, whatever folder is currently active in file explorer.
+				<h4>View edited file</h4>
+				To view opened file in browser, click to link located top of editor.
+				<h4>Delete file</h4>
+				Delete button delete and close currently opened file.
+				<h4>Close file</h4>
+				Close button close currently opened file or emptying unsaved new file content.
+			</div>
+			<a href="cancel" class="close" title="Close"><img src="{_def-tmpl_}/images/cancel.png"></a>
+		</div>
+		<div class="overlay">
+		</div>
+	</body>
+</html>
