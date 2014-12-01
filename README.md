@@ -1,11 +1,14 @@
 miucode-0.2.beta
 ================
 
+It is old, deprecated version. It is here only for archive purpose. Current development version is here:  
+[](https://github.com/sookoll/miucode)
+
 * Miucode - Simple text editor in your browser
 * Current version: 0.2 Beta
 * Release date: 04.10.2010.
 * Author: Mihkel Oviir
-* License: Look for license.txt in program folder
+* License: Released under MIT. Look for LICENSE in program folder
  
 ## Usage ##
 1. Download packed .zip
