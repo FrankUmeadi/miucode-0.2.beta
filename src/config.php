@@ -4,7 +4,7 @@
 
 //urls and paths
 define('URL','http://'.$_SERVER['SERVER_NAME'].'/editor_path');// url
-define('PATH',$_SERVER['DOCUMENT_ROOT'].'/editor_path');// path
+define('PATH',__FILE__.'/editor_path');// path
 define('PATH_INC',PATH.'/includes');// server-side scripts
 define('PATH_TMPL',PATH.'/templates');// templates
 
@@ -20,7 +20,7 @@ define('FORMATS',serialize(array('txt','html','htm','js','php','inc','css','xml'
 # definesarray
 function definesArray(){
 	$data = array();
-	$data['def-libs']='http://'.$_SERVER['SERVER_NAME'].'/libs';
+	$data['def-libs']='jscript/libs';
 	$data['def-tmpl']='templates/'.TEMPLATE;
 	$data['def-path']=BROWSE_PATH;
 	return $data;
